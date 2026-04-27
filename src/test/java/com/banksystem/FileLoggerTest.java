@@ -9,13 +9,9 @@ public class FileLoggerTest {
     @Test
     void testPathCompatibility() {
         FileLogger logger = new FileLogger();
-        String result = logger.getLogPathModern("logs", "app.log");
-        
-        String expectedSeparator = File.separator;
-        assertTrue(result.contains(expectedSeparator), 
-            "duong dan phai su dung dung dau gach cua he dieu hanh: " + expectedSeparator);
+        String result = logger.getLogPath("logs", "app.log");
+        assertTrue(result.contains(File.separator));
     }
-
     @Test
     void testHardcodedPathFailure() {
         String badPath = "logs\\app.log"; 
